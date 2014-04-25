@@ -31,19 +31,6 @@ static void add_chr(int ch)//add a char to
     st_current_used_size++;
 }
 
-void reverse (char *str)
-{
-	char t;
-	static int i = 0;
-	t = *(str + strlen(str) - i - 1);
-	*(str + strlen(str) - i - 1) = * (str + i);
-	*(str + i) = t;
-	i++;
-    
-	if(strlen(str)/2 == i);
-	else  reverse(str);
-}
-
 char *get_str(FILE *fp)
 {
     int     ch;
@@ -119,8 +106,7 @@ int main(int argc, const char * argv[])
                     if (argv[1][2] == 'f') {
                         //to be extneded:re_file_out();
                     } else {
-                        char a = 'a';
-                        fscanf(fp, "%s", &a);
+                        fscanf(fp, "%s", (char *)argv[2]);
                         get_str(fp);
                         
                         for (int i = st_current_used_size-1; i >=0 ; i--) {
